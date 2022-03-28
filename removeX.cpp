@@ -1,22 +1,11 @@
-//for complete problem refer to coding ninjas platform
-
-void removeX(char *str)
-{
-    if(str[0]=='\0')
-    {
-        return;
-    }
-    if(str[0]=='x')
-    {
-        int i=1;
-        for(;str[i]!='\0';i++)
-        {
-            str[i-1]=str[i];
+void removeX(char *in,int si = 0){
+    if(in[si] == '\0') return; //base case
+    removeX(in,si+1);
+    if(in[si] == 'x'){
+        int i = si+1;
+        for(;in[i] != '\0';i++){
+            in[i-1] = in[i];
         }
-        str[i-1]=str[i];
-        removeX(str);
-    }else
-    {
-        removeX(str+1);
+        in[i-1]='\0';
     }
 }
